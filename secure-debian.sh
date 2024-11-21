@@ -133,7 +133,7 @@ function secure_ssh() {
         sed -i "s/AllowUsers/#AllowUsers yourUser/g" /etc/ssh/sshd_config
         msg_warn "No SSH users specified, allowing all users to login"
     fi
-
+    groupadd sftp >> /dev/null 2>&1
     if [[ -n "$sshGroup" ]]; then
         IFS=',' read -ra ADDR <<<"$sshGroup"        
         for i in "${ADDR[@]}"; do
