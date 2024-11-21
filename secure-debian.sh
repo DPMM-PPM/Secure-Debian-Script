@@ -53,7 +53,7 @@ function installPackages() {
     msg_info "Updating system"
     apt-get -y update >/dev/null 2>&1
     apt-get -y full-upgrade >/dev/null 2>&1
-    apt-get -y install apt-transport-https ca-certificates host gnupg lsb-release >/dev/null 2>&1
+    apt-get -y install apt-transport-https ca-certificates host gnupg lsb-release net-tools ssh >/dev/null 2>&1
     msg_ok "System updated successfully"
     if [[ -n "$auditSystem" ]]; then
         msg_info "Installing Lynis"
