@@ -138,6 +138,7 @@ function secure_ssh() {
         IFS=',' read -ra ADDR <<<"$sshGroup"
         for i in "${ADDR[@]}"; do
             sed -i "/^AllowGroups/ s/$/ ${i}/" /etc/ssh/sshd_config
+            groupadd ${i} > /dev/null 2>&1
             msg_ok "SSH group ${i} added to allowed groups"
         done
     else
