@@ -143,7 +143,7 @@ function secure_ssh() {
             if [[ -n "$sshUser" ]]; then
                 IFS=',' read -ra ADDR <<<"$sshUser"
                 for j in "${ADDR[@]}"; do
-                    usermod -aG ${i} ${j},sftp > /dev/null 2>&1
+                    usermod -aG ${i},sftp ${j} > /dev/null 2>&1
                     msg_ok "User ${j} added in group ${i}"
                 done
             fi
