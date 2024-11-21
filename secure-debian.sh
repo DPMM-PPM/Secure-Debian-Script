@@ -473,13 +473,13 @@ function script_init() {
     fi
     if [ "$EUID" = 0 ]; then
         if [[ -f "$configFile" ]]; then
-            installPackages
-            secure_system
+         #   installPackages
+         #   secure_system
             secure_ssh
-            secure_firewall
-            secure_fail2ban
-            secure_updates
-            script_summary
+         #   secure_firewall
+         #   secure_fail2ban
+         #   secure_updates
+         #   script_summary
         else
             errorhandler "Configuration file couldn't be found. Please provide \"config.ini\""
         fi
